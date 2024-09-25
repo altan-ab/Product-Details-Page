@@ -5,6 +5,7 @@ import useFetch from '../utilities/useFetch'
 
 export default function StoreFront() {
   const [products, setProducts] = useState([])
+
   const { get, loading } = useFetch(
     'https://router-12f10-default-rtdb.europe-west1.firebasedatabase.app/'
   )
@@ -18,7 +19,7 @@ export default function StoreFront() {
   }, [])
 
   return (
-    <div className='store-front'>
+    <div className="store-front">
       {loading && <Loader />}
       {products.map((product) => (
         <Product key={product.id} details={product} />

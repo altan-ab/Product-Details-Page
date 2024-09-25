@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ProductDetails from './ProductDetails'
 
 export default function Product(props) {
-  const [count, setCount] = useState(0)
-
   const { details } = props
+  const [count, setCount] = useState(0)
 
   function handleIncrementClick() {
     setCount((c) => c + 1)
@@ -17,7 +17,7 @@ export default function Product(props) {
 
   return (
     <div className="product">
-      <Link to={`/products/${details.id}`}>
+      <Link to={`/products/${details.id}`} state={{ count }}>
         <img src={details.image} width="50" alt={details.name} />
         <div className="product-info">
           <h2>{details.name}</h2>
